@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
 
         if (isDead) return;
         // 사망 시 처리를 더 이상 진행하지 않고 종료
-       
+
 
         // 마우스 왼쪽 버튼을 눌렀으며 && 최대 점프 횟수(2)에 도달하지 않았다면
         if (Input.GetMouseButtonDown(0) && jumpCount < 2)
@@ -72,12 +72,15 @@ public class PlayerController : MonoBehaviour
         playerRigidbody.velocity = Vector2.zero;
         // 사망 상태를 true로 변경
         isDead = true;
+
+        // 게임 매니저의 게임오버 처리 실행
+        GameManager.instance.OnPlayerDead();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         // 트리거 콜라이더를 가진 장애물과의 충돌을 감지
-        if(other.tag == "Dead" && !isDead)
+        if (other.tag == "Dead" && !isDead)
         {
             // 충돌한 상대방의 태그가 Dead이며 아직 사망하지 않았다면 Die() 실행
             Die();
@@ -88,7 +91,7 @@ public class PlayerController : MonoBehaviour
     {
         // 바닥에 닿았음을 감지하는 처리
         // 어떤 콜라이더와 닿았으며, 충돌 표면이 위쪽을 보고 있으면
-        if(collision.contacts[0].normal.y > 0.7f)
+        if (collision.contacts[0].normal.y > 0.7f)
         {
             // isGrounded를 true로 변경하고, 누적 점프 횟수를 0으로 리셋
             isGrounded = true;

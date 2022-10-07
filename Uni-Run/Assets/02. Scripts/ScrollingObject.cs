@@ -9,15 +9,22 @@ public class ScrollingObject : MonoBehaviour
 
     void Update()
     {
-        // 초당 speed의 속도로 왼쪽으로 평행이동
-        transform.Translate(Vector3.left * speed * Time.deltaTime);
-        // transform.Translate(new Vector3(-1, 0, 0) * speed * Time.deltaTime);
-        // transform.Rotate(new Vector3(-180, 0, 0) * speed * Time.deltaTime);
-        //transform.Translate(Vector3.left * speed * Time.deltaTime, Space.Self);
-        //transform.Translate(Vector3.left * speed * Time.deltaTime, Space.World);
-        //transform.position = transform.position + (transform.right * -1) * speed * Time.deltaTime;
-        //transform.position += (transform.right * -1) * speed * Time.deltaTime;
-        //transform.position = transform.position + Vector3.left * speed * Time.deltaTime;
-        //transform.position += Vector3.left * speed * Time.deltaTime;
+
+        if(!GameManager.instance.isGameover)
+        {
+            // 초당 speed의 속도로 왼쪽으로 평행이동
+            // 초당 speed의 속도로 왼쪽으로 평행이동
+            transform.Translate(Vector3.left * speed * Time.deltaTime);
+            // transform.Translate(new Vector3(-1, 0, 0) * speed * Time.deltaTime);
+            // transform.Rotate(new Vector3(-180, 0, 0) * speed * Time.deltaTime);
+            //transform.Translate(Vector3.left * speed * Time.deltaTime, Space.Self);
+            //transform.Translate(Vector3.left * speed * Time.deltaTime, Space.World);
+            //transform.position = transform.position + (transform.right * -1) * speed * Time.deltaTime;
+            //transform.position += (transform.right * -1) * speed * Time.deltaTime;
+            //transform.position = transform.position + Vector3.left * speed * Time.deltaTime;
+            //transform.position += Vector3.left * speed * Time.deltaTime;
+        }
     }
+
+
 }
