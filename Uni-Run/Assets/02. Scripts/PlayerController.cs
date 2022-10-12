@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
 
 
         // 마우스 왼쪽 버튼을 눌렀으며 && 최대 점프 횟수(2)에 도달하지 않았다면
-        if (Input.GetMouseButtonDown(0) && jumpCount < 2)
+        if (Input.GetMouseButtonDown(0) && jumpCount < 5)
         {
             // 점프 횟수 증가
             jumpCount++;
